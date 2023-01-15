@@ -1,8 +1,5 @@
-package src;
-
 import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -41,7 +38,7 @@ public class login extends Application {
     @FXML
     void signUpPressed(ActionEvent event)  {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("signUp.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../signUp.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage registerationStage= new Stage();
             registerationStage.initModality(Modality.APPLICATION_MODAL);
