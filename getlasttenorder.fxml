@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="567.0" prefWidth="701.0" style="-fx-background-image: url('file:E:/PROJECTS/dbGUI/dbGUI/src/images3.gif');" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.testQueries2">
+    <children>
+        <TableView fx:id="tableview_bestseller" layoutX="65.0" layoutY="69.0" prefHeight="401.0" prefWidth="575.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="69.0">
+            <columns>
+                <TableColumn fx:id="col_typename" prefWidth="148.0000228881836" text="type name" />
+                <TableColumn fx:id="col_idProduct" prefWidth="92.0" text="idProduct" />
+                <TableColumn fx:id="col_f_date" prefWidth="108.7999267578125" text="date" />
+                <TableColumn fx:id="col_price" prefWidth="119.20004272460938" text="price" />
+                <TableColumn fx:id="col_idOrder" prefWidth="113.60003662109375" text="idOrder" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

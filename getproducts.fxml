@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="714.0" prefWidth="724.0" style="-fx-background-image: url('file:E:/PROJECTS/dbGUI/dbGUI/src/images3.gif');" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.testQueries3">
+   <children>
+      <TableView fx:id="gold_tableview" layoutX="100.0" layoutY="47.0" prefHeight="200.0" prefWidth="524.0" AnchorPane.bottomAnchor="488.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="47.0">
+        <columns>
+          <TableColumn fx:id="gold_col_type_name" prefWidth="103.20001983642578" text="type_name" />
+          <TableColumn fx:id="gold_col_idProduct" prefWidth="112.0" text="idProduct" />
+            <TableColumn fx:id="gold_col_weight" prefWidth="74.4000244140625" text="weight" />
+            <TableColumn fx:id="gold_col_country" prefWidth="75.99993896484375" text="country" />
+            <TableColumn fx:id="gold_col_price" prefWidth="72.79998779296875" text="price" />
+            <TableColumn fx:id="gold_col_discount" prefWidth="88.00003051757812" text="discount" />
+        </columns>
+      </TableView>
+      <TableView fx:id="jewerly_tableview" layoutX="100.0" layoutY="261.0" prefHeight="203.0" prefWidth="524.0" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="261.0">
+         <columns>
+            <TableColumn fx:id="jewerly_col_type_name" prefWidth="103.20001983642578" text="type_name" />
+            <TableColumn fx:id="jewerly_col_idProduct" prefWidth="112.0" text="idProduct" />
+            <TableColumn fx:id="jewerly_col_weight" prefWidth="74.4000244140625" text="weight" />
+            <TableColumn fx:id="jewerly_col_country" prefWidth="75.99993896484375" text="country" />
+            <TableColumn fx:id="jewerly_col_price" prefWidth="72.79998779296875" text="price" />
+            <TableColumn fx:id="jewerly_col_discount" prefWidth="88.00003051757812" text="discount" />
+         </columns>
+      </TableView>
+      <TableView fx:id="coin_tableview" layoutX="100.0" layoutY="502.0" prefHeight="203.0" prefWidth="524.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="502.0">
+         <columns>
+            <TableColumn fx:id="coin_col_type_name" prefWidth="159.1999740600586" text="type_name" />
+            <TableColumn fx:id="coin_col_year" prefWidth="79.20001220703125" text="C_year" />
+            <TableColumn fx:id="coin_col_price" prefWidth="99.20004272460938" text="price" />
+            <TableColumn fx:id="coin_col_discount" prefWidth="84.0" text="discount" />
+            <TableColumn fx:id="coin_col_weight" prefWidth="104.0" text="weight" />
+         </columns>
+      </TableView>
+      <Text layoutX="308.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: Gold;" text="Gold" wrappingWidth="136.43634033203125">
+         <font>
+            <Font name="System Italic" size="30.0" />
+         </font>
+      </Text>
+      <Text layoutX="308.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: Gold;" text="Jewerly" wrappingWidth="180.43634033203125">
+         <font>
+            <Font name="System Italic" size="30.0" />
+         </font>
+      </Text>
+      <Text layoutX="308.0" layoutY="490.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: Gold;" text="Coin" wrappingWidth="180.43634033203125">
+         <font>
+            <Font name="System Italic" size="30.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
