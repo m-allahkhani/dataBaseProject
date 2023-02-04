@@ -46,6 +46,7 @@ public class IDEpageController {
         checkRunBTN();
         checkStartBTN(primaryStage);
         checkExitBTN(primaryStage);
+
     }
 
     private void checkExitBTN(final Stage primaryStage){
@@ -67,20 +68,34 @@ public class IDEpageController {
         });
     }
 
+
+
     private void checkRunBTN(){
         idEpage.getRunBTN().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 // updateColumns(columns);
                // updateTable();
+                idEpage.setNewTable();
                 if ("file".equals(type)) {
-                    List listData = connectData.getData(columns, stringWriter.toString());
-                    connectData.SetDataOnTable(idEpage.getTable(), listData, columns);
+                    if(isSElect(stringWriter)) {
+                        List listData = connectData.getData(columns, stringWriter.toString());
+                        connectData.SetDataOnTable(idEpage.getTable(), listData, columns);
+                    }
+                    else {
+                        connectData.setData(stringWriter.toString(), idEpage.getResultLable());
+                    }
                 }
                 else if ("write".equals(type)) {
                     stringWriter = readCode(); //query
-                    List listData = connectData.getData(columns, stringWriter.toString());
-                    connectData.SetDataOnTable(idEpage.getTable(), listData, columns);
+                    if (isSElect(stringWriter)){
+                        List listData = connectData.getData(columns, stringWriter.toString());
+                        connectData.SetDataOnTable(idEpage.getTable(), listData, columns);
+                    }
+                    else {
+                        connectData.setData(stringWriter.toString(), idEpage.getResultLable());
+                    }
+
                 }
             }
         });
@@ -143,11 +158,10 @@ public class IDEpageController {
                 break;
             } else {
                 stringWriter.write(str + "\n");
-                String[] split = str.split(" ");
-                columnNum = checkCloumnName(split, columnNum);
-
             }
         }
+        String[] split =stringWriter.toString().split(" ");
+        columnNum = checkCloumnName(split, columnNum);
         return stringWriter;
     }
 
@@ -170,8 +184,19 @@ public class IDEpageController {
                 break;
             }
             if (!split[i].equals(",")){
-                columns[num] = split[i];
-                num++;
+                if(split[i].endsWith(",")){
+                  String[] str  = split[i].split(",");
+                    columns[num] = str[0];
+                    num++;
+                }
+                else if (i < split.length - 1 && split[i+1].equalsIgnoreCase("as")){
+                    i++;
+                }
+                else {
+                    columns[num] = split[i];
+                    num++;
+                }
+
             }
         }
 
@@ -206,6 +231,12 @@ public class IDEpageController {
         return split;
     }
 
+    private boolean isSElect(StringWriter writer){
+        String[] str = stringWriter.toString().split(" ");
+        str = deleteSpace(str);
+        return str[0].equalsIgnoreCase("select");
+
+    }
 
 }
 
