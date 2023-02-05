@@ -157,7 +157,7 @@ public class QueryPageController {
 //                    ********************************************************************
                 if(i == 4){
 
-                    String str1 = "SELECT idOrders, price, F_date" +
+                    String str1 = "SELECT idOrders, price, F_date " +
                             "FROM dbproject.factor;";
                     
                     String[] strings1 = {"idOrders, price, F_date"};
