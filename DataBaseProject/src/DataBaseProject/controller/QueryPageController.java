@@ -153,6 +153,51 @@ public class QueryPageController {
 
 
                 }
+                
+//                    ********************************************************************
+                if(i == 4){
+
+                    String str1 = "SELECT idOrders, price, F_date" +
+                            "FROM dbproject.factor;";
+                    
+                    String[] strings1 = {"idOrders, price, F_date"};
+                    
+                    Label label1 = new Label("idOrder");
+                    Label label2 = new Label("price");
+                    Label label = new Label("F_date");
+
+                    TableView tableView1 = new TableView();
+                    TableView tableView2 = new TableView();
+                    TableView tableView3 = new TableView();
+                    tableView1.setPrefWidth(400);
+                    tableView2.setPrefWidth(400);
+                    tableView3.setPrefWidth(400);
+                    tableView1.setPrefHeight(200);
+                    tableView2.setPrefHeight(200);
+                    tableView3.setPrefHeight(200);
+
+                    List list1 = connectData.getData(strings1, str1);
+                    connectData.SetDataOnTable(tableView1, list1, strings1);
+                    
+                    VBox vBox = new VBox(label1, tableView1, label2, tableView2, label, tableView3);
+                    Stage stage = new Stage();
+                    stage.setScene(new Scene(vBox));
+
+                    BackgroundImage backgroundImage = new BackgroundImage(new Image(QueryPage
+                            .class.getResourceAsStream("image2.png")),
+                            BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
+                            BackgroundPosition.CENTER, BackgroundSize.DEFAULT
+                    );
+                    vBox.setBackground(new Background(backgroundImage));
+
+                    stage.show();
+
+
+                    
+                }
+//                ***************************************************************************
+                
+                
             }
 
         });
