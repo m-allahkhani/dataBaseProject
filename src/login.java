@@ -1,5 +1,3 @@
-package src;
-
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -16,16 +14,19 @@ import java.io.IOException;
 import java.sql.*;
 
 public class login extends Application {
+    static Stage stage=null;
+    static String CustomerID;
+    static String AdminID;
     public static void main(String[] args) {
         launch(args);
     }
-
     @Override
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("fxml_login.fxml"));
         Scene scene = new Scene(root, 760, 484);
         primaryStage.setTitle("FXML Welcome");
         primaryStage.setScene(scene);
+        stage=primaryStage;
         primaryStage.show();
     }
 
@@ -44,8 +45,6 @@ public class login extends Application {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("signUp.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage registerationStage= new Stage();
-            registerationStage.initModality(Modality.APPLICATION_MODAL);
-            registerationStage.initStyle(StageStyle.UNDECORATED);
             registerationStage.setTitle("register");
             registerationStage.setScene(new Scene(root1,412,635));
             registerationStage.show();
@@ -89,13 +88,14 @@ public class login extends Application {
             try{
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Connection mysqlConnection = DriverManager.getConnection
-                        ("jdbc:mysql://localhost:3306/DBproject",
-                                "root","M.A.Toopkanlu");
+                        ("jdbc:mysql://localhost:3306/dbproject",
+                                "root", "fsg138099");
                 CallableStatement callableStat1;
                 callableStat1=mysqlConnection.prepareCall("{call findCustomer(?,?)}");
                 callableStat1.setString(1,username);
                 callableStat1.setString(2,password);
                 callableStat1.execute();
+
                 ResultSet rs = callableStat1.getResultSet();
                 CallableStatement callableStat2;
                 if(!rs.next()){
@@ -116,6 +116,9 @@ public class login extends Application {
                     Node node=(Node) event.getSource();
                     Stage thisStage = (Stage) node.getScene().getWindow();
                     thisStage.close();
+                    stage.setWidth(800.0);
+                    stage.setHeight(500.0);
+                    ChoosePageController pageController = new ChoosePageController(stage);
                 }else {
                     alert.setAlertType(Alert.AlertType.ERROR);
                     alert.setHeaderText("A customer with this username and password already exists!");
@@ -145,8 +148,8 @@ public class login extends Application {
         Alert alert=new Alert(Alert.AlertType.ERROR);
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection mysqlConnection = DriverManager.getConnection
-                ("jdbc:mysql://localhost:3306/DBproject",
-                "root","M.A.Toopkanlu");
+                ("jdbc:mysql://localhost:3306/dbproject",
+                        "root", "fsg138099");
         CallableStatement callableStat;
         if(username.length()>20 || username.length()==0 ||
                 password.length()==0 || password.length()>30 || type.equals("User type")){
@@ -167,10 +170,16 @@ public class login extends Application {
                 passWordTextField.clear();
             }else {
                 do{
-                    String customerId = rs.getString("idCustomer");
+                    CustomerID = rs.getString("idCustomer");
                     String customerName = rs.getString("city");
-                    System.out.println("id is " + customerId);
-                    // other attributes of customer can be here ...
+                    try {
+                        stage.setWidth(800.0);
+                        stage.setHeight(500.0);
+                        ChoosePageController pageController = new ChoosePageController(stage);
+                    }
+                    catch (Exception exception){
+                        System.out.println(exception.getMessage());
+                    }
                 }while (rs.next());
             }
         }else {
@@ -186,11 +195,19 @@ public class login extends Application {
                 passWordTextField.clear();
             }else {
                 do{
-                    String adminId = rs.getString("idStaff");
-                    System.out.println("id is " + adminId);
+                    AdminID = rs.getString("idStaff");
+
                     // other attributes of admin can be here ...
                 }while (rs.next());
             }
         }
+    }
+
+    public static String getAdminID() {
+        return AdminID;
+    }
+
+    public static String getCustomerID() {
+        return CustomerID;
     }
 }

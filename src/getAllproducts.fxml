@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="742.0" prefWidth="769.0" style="-fx-background-image: url('images3.gif');" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="All_Product_page">
+   <children>
+      <TableView fx:id="all_Product_tableview" layoutX="143.0" layoutY="120.0" prefHeight="207.0" prefWidth="455.0" AnchorPane.bottomAnchor="415.0" AnchorPane.leftAnchor="143.0" AnchorPane.rightAnchor="171.0" AnchorPane.topAnchor="120.0">
+        <columns>
+          <TableColumn fx:id="col_id_all_product" prefWidth="112.0" text="idProduct" />
+            <TableColumn fx:id="col_name_all_product" prefWidth="72.79998779296875" text="name" />
+            <TableColumn fx:id="col_typeName_all_product" prefWidth="88.00003051757812" text="type_name" />
+          <TableColumn fx:id="col_price_all_product" prefWidth="103.20001983642578" text="price" />
+            <TableColumn fx:id="col_discount_all_product" prefWidth="75.0" text="discount" />
+        </columns>
+      </TableView>
+      <Text layoutX="302.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: Gold;" text="Product" wrappingWidth="136.43634033203125">
+         <font>
+            <Font name="System Italic" size="30.0" />
+         </font>
+      </Text>
+      <Button fx:id="btn_change_all_product" layoutX="144.0" layoutY="440.0" mnemonicParsing="false" onAction="#change_Product_all" text="change" />
+      <Button fx:id="btn_add_all_product" layoutX="143.0" layoutY="347.0" mnemonicParsing="false" onAction="#insert_Product_all" text="add " />
+      <Button fx:id="btn_remove_all_product" layoutX="143.0" layoutY="393.0" mnemonicParsing="false" onAction="#delet_Product_all" text="remove" />
+      <TextField fx:id="txt_id_all_product" layoutX="325.0" layoutY="359.0" promptText="id" />
+      <TextField fx:id="txt_name_all_product" layoutX="325.0" layoutY="405.0" promptText="idOrder" />
+      <TextField fx:id="txt_typeName_all_product" layoutX="325.0" layoutY="452.0" promptText="type_name" />
+      <TextField fx:id="txt_price_all_product" layoutX="497.0" layoutY="359.0" promptText="price" />
+      <TextField fx:id="txt_discount_all_product" layoutX="497.0" layoutY="405.0" promptText="discount" />
+      <Label fx:id="lbl_res" layoutX="157.0" layoutY="496.0" text="Label" />
+   </children>
+</AnchorPane>

@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="635.0" prefWidth="412.0" style="-fx-background-color: #D7F1FF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.login">
+<AnchorPane prefHeight="635.0" prefWidth="412.0" style="-fx-background-color: #D7F1FF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login">
    <children>
       <TextField fx:id="userNameSiTextField" layoutX="111.0" layoutY="88.0" prefHeight="26.0" prefWidth="214.0" promptText="username" style="-fx-border-color: #36B6FF;" />
       <TextField fx:id="emailSiTextField" layoutX="112.0" layoutY="148.0" prefHeight="26.0" prefWidth="214.0" promptText="email" style="-fx-border-color: #36B6FF;" />
